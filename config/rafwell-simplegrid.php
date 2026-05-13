@@ -1,6 +1,7 @@
 <?php
 return [
 	'allowExport' => true, //if true, show the export option, maybe not a good idea for big grids or low server
+	'canExport' => null, // Classe que implementa GridExportGateInterface. Se null ou inexistente, permite exportar.
 	'export' => [
 		'pdf' => [
 			'enabled' => false,
@@ -11,6 +12,7 @@ return [
 		],
 		'excel' => [
 			'rowsPerPageExport' => 1000,
+			'onProgress' => null, // class name (must have reportProgress($page, $totalPages, $progress)) or callable
 		]
 	],
 	'rowsPerPage' => [10, 20, 30, 50, 100, 200], //the options to select
